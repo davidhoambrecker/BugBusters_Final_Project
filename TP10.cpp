@@ -306,6 +306,7 @@ int main() {
 	char *un;
 	char *pres;
 	char *pap;
+	char *project;
 
 	string line;
 
@@ -359,9 +360,9 @@ int main() {
 		}
 	}
 
-	int choice = 0;
+	char choice;
 
-	while (1) {
+	// while (1) {
 		bool checkers = false;
 		while(!checkers){
 			cout << "\nWelcome to USF Class-Roll System\n";
@@ -402,7 +403,7 @@ int main() {
 		default:
 			break;
 		}
-	}
+	//}
 
 	return 0;
 }
