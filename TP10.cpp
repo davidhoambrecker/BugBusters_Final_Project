@@ -290,7 +290,7 @@ void UPDATE() {
 void save(){
 	ofstream outfile;
 	outfile.open("database.txt");
-	for(unsigned int i=database.size(); i < 0 ; i--){
+	for(int i=database.size(); i < 0 ; i--){
 		outfile << database[i].get_fname() << "," << database[i].get_lname() << "," << database[i].get_unum() << "," << database[i].get_email() << "," << database[i].get_pres() << "," << database[i].get_paper() << "," << database[i].get_proj() << endl;
 		i++;
 	}
@@ -362,48 +362,48 @@ int main() {
 
 	char choice;
 
-	// while (1) {
-		bool checkers = false;
-		while(!checkers){
-			cout << "\nWelcome to USF Class-Roll System\n";
-			cout << "1: READ Student Data\n";
-			cout << "2: WRITE Student Data\n";
-			cout << "3: ADD Student\n";
-			cout << "4: DELETE Student\n";
-			cout << "5: SEARCH Student\n";
-			cout << "6: UPDATE Student\n";
-			cout << "7: EXIT\n";
-			cout << "Enter in a number (1-7): ";
+	while (true) {
+		cout << "\nWelcome to USF Class-Roll System\n";
+		cout << "1: READ Student Data\n";
+		cout << "2: WRITE Student Data\n";
+		cout << "3: ADD Student\n";
+		cout << "4: DELETE Student\n";
+		cout << "5: SEARCH Student\n";
+		cout << "6: UPDATE Student\n";
+		cout << "7: EXIT\n";
+		cout << "Enter in a number (1-7): ";
 
-			cin >> choice;
-		}
+		cin >> choice;
+		
 		switch (choice)
 		{
-		case(1):
-			DISPLAY();
-			break;
-		case(2):
-			WRITE();
-			break;
-		case(3):
-			ADD();
-			break;
-		case(4):
-			DELETE();
-			break;
-		case(5):
-			SEARCH();
-			break;
-		case(6):
-			UPDATE();
-			break;
-		case(7):
-			return 0;
-			break;
-		default:
-			break;
+			case('1'):
+				cout << "Display";
+				DISPLAY();
+				break;
+			case('2'):
+				WRITE();
+				break;
+			case('3'):
+				ADD();
+				break;
+			case('4'):
+				DELETE();
+				break;
+			case('5'):
+				SEARCH();
+				break;
+			case('6'):
+				UPDATE();
+				break;
+			case('7'):
+				return 0;
+				break;
+			default:
+				cout << "\nYou have entered an incorrect selection\nPlease try again!\n\n";
+				break;
 		}
-	//}
+	}
 
 	return 0;
 }
