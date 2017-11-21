@@ -1,7 +1,7 @@
 Bugs Documentation:
 
-1.- Variable Project was undeclared.
-2.- Deleted external infinite while loop.
-3.- Choice doesn't have to be initialized to zero.
-4.- Choice was changed to char from int to avoid issues when entering a nonnumerical value.
+1.- (Line 309) - Severe Fault: Variable Project was undeclared.
+2.- (Line 364) - Severe Fault: Deleted external infinite while loop.
+3.- (Line 362) - Moderate Fault: Choice doesn't have to be initialized to zero.
+4.- (Line 362) - Severe Fault: Choice was changed to char from int to avoid issues when entering a nonnumerical value.
 5.- 
