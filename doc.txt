@@ -5,7 +5,11 @@ Bugs Documentation:
 3.- (Line 362) - Moderate Fault: Choice doesn't have to be initialized to zero.
 4.- (Line 362) - Severe Fault: Choice was changed to char from int to avoid issues when entering a nonnumerical value.
 5.- (Line 296) - Moderate Fault: i declared in loop as unsigned int and that would always evaluate to false when i < 0.
-6.- (Line 365) - Cosmetic Fault: Swithce while(1) to while(true) for cleaner and more general implementation.
+6.- (Line 365) - Cosmetic Fault: Switched while(1) to while(true) for cleaner and more general implementation.
 7.- (Line 364) - Moderate Fault: Deleted variable checkers which is not needed anymore since its loop was deleted.
 8.- (Line 402) - Cosmetic Fault: Added an error message printing when the default case of the switch statement is reached.
 9.- (Lines 380, 384, 387, 390, 393, 396, 399) - Severe Fault: Switched the cases from integer to charactes to match the declaration of choice.
+10.- (Line 186) - Severe Fault: sel changed from int to char to avoid infinite loop when entering non-int value.
+11.- (Line 195) - Severe Fault: Changed integer values in the if statement to their respective character values.
+12.- (Lines 201, 209, 218, 226) - Severe Fault: Switched the cases from integer to charactes to match the declaration of choice.
+13.- 

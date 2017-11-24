@@ -135,6 +135,7 @@ void ADD() {
 	string nfName, nlName, nUnum, nEmail;
 	cout << "Student First Name:";
 	cin >> nfName;
+	cout << nfName;
 	cout << endl << "Student's Last Name:";
 	cin >> nlName;
 	cout << endl << "Student's UNumber:";
@@ -183,7 +184,7 @@ void SEARCH() {
 	int found[20];
 	bool check = false;
 	string name;
-	int sel;
+	char sel;
 	DISPLAY();
 	int j = 0;
 	for(int i = 0; i < 20; i++){
@@ -192,13 +193,13 @@ void SEARCH() {
 	while(!check){
 		cout << "SEARCH for a Student by\n\t1. Last Name\n\t2. First Name\n\t3. U Number\n\t4. Email Address\nPlease Chose(1-4):";
 		cin >> sel;
-		if((sel > 0) && (sel < 5)) check = true;
+		if((sel > '0') && (sel < '5')) check = true;
 		else cout << "You chose poorly, try again.\n";
 	}
 	cout << "Enter search criteria: ";
 	cin >> name;
 	switch(sel){
-		case 1:
+		case '1':
 			for(int i = 0; i < database.size(); i++){
 				if(name.compare(database[i].get_lname()) ==0){
 					found[j] = i;
@@ -206,7 +207,7 @@ void SEARCH() {
 				}
 			}
 			break;
-		case 2:
+		case '2':
 			for(int i = 0; i < database.size(); i++){
 				if(name.compare(database[i].get_fname()) ==0){
 					found[j] = i;
@@ -215,7 +216,7 @@ void SEARCH() {
 				}
 			}
 			break;
-		case 3:
+		case '3':
 			for(int i = 0; i < database.size(); i++){
 				if(name.compare(database[i].get_unum()) ==0){
 					found[j] = i;
@@ -223,7 +224,7 @@ void SEARCH() {
 				}
 			}
 			break;
-		case 4:
+		case '4':
 			for(int i = 0; i < database.size(); i++){
 				if(name.compare(database[i].get_email()) ==0){
 					found[j] = i;
@@ -378,7 +379,6 @@ int main() {
 		switch (choice)
 		{
 			case('1'):
-				cout << "Display";
 				DISPLAY();
 				break;
 			case('2'):
