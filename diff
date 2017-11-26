@@ -1,0 +1,65 @@
+1c1
+< // To compile on Linux use g++ -std=c+11 name_of_file.cpp
+---
+> // To compile on Linux use g++ -std=c++11 name_of_file.cpp
+71c71
+< 	proj = x;
+---
+> 	paper = x;
+85c85
+< 	for (int i = 1; i <= database.size(); i++) {
+---
+> 	for (int i = 0; i < database.size(); i++) {
+95c95
+< 	char grade = 0;
+---
+> 	int grade = 0;
+109c109
+< 		if((nxtinput > 0) && (nxtinput < 4)) check = false;
+---
+> 		if((nxtinput > 0) && (nxtinput < 4)) check = true;
+169c169
+< 			check = false;
+---
+> 			check = true;
+172d171
+< 			database.erase(database.begin() + input - 1);
+213d211
+< 					i--;
+254c252
+< 		if((input < 0) && (input < database.size()+1)) check = true;
+---
+> 		if((input > 0) && (input < database.size()+1)) check = true;
+261c259
+< 		cout << nxtinput;
+---
+> 		cin >> nxtinput;
+265a264
+> 	check = false;
+293c292
+< 	for(unsigned int i=database.size(); i < 0 ; i--){
+---
+> 	for(unsigned int i=0; i < database.size() ; i--){
+308a308
+> 	char *project;
+315c315
+< 	if(fp = fopen("database.txt", "w")){
+---
+> 	if((fp = fopen("database.txt", "r")) != NULL){
+339c339
+< 		outfile << "Rick,Sanchaz,u01234567,regularrick@gmail.com,6,6,6" << endl;
+---
+> 		outfile << "Rick,Sanchaz,u01234567,regularrick@gmail.com,0,0,0" << endl;
+342c342
+< 		outfile << "Walter,White,u96571368,hizenburg@gmail.com,6,6,6" << endl;
+---
+> 		outfile << "Walter,White,u96571368,hizenburg@gmail.com,2,2,2" << endl;
+348c348
+< 		while(fgets(str, MAXLEN, fp) == NULL){
+---
+> 		while(fgets(str, MAXLEN, fp) != NULL){
+377a378,381
+> 			if (choice >= 1 && choice <= 7)
+> 			{
+> 				checkers = true;
+> 			}
