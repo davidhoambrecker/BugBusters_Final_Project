@@ -1,4 +1,4 @@
-// To compile on Linux use g++ -std=c+11 name_of_file.cpp
+// To compile on Linux use g++ -std=c++11 name_of_file.cpp
 #include <iostream>
 #include <string>
 #include <fstream>
