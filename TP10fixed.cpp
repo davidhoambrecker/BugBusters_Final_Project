@@ -1,4 +1,4 @@
-// To compile on Linux use g++ -std=c++11 name_of_file.cpp
+// To compile on Linux use g++ -std=c+11 name_of_file.cpp
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -14,7 +14,7 @@ void save();
 class Student {
 	string fname, lname, unum, email;
 	int pres, paper, proj;
-	public:
+public:
 	Student(string, string, string, string, int, int, int);
 	void set_fname(string);
 	void set_lname(string);
@@ -231,8 +231,11 @@ void SEARCH() {
 			break;
 	}
 	cout << "Found " << j << " matching accounts listed below.\n";
-	for(int i = 0; i < 20; i++){
-		if(found[i] >= 0) cout << found[i]+1 << ". " << database[i].get_unum() << endl;
+	for(int j = 0; j < 20; j++){
+		if(found[j] >= 0) {
+			int i = found[j];
+			cout << j+1 << ". " << database[i].get_fname() << "," << database[i].get_lname() << "," << database[i].get_unum() << "," << database[i].get_email() << "," << database[i].get_pres() << "," << database[i].get_paper() << "," << database[i].get_proj() << endl;
+		}
 	}
 	cout << endl;
 
@@ -289,7 +292,7 @@ void UPDATE() {
 void save(){
 	ofstream outfile;
 	outfile.open("database.txt");
-	for(int i=0; i < database.size() ; i++){
+	for(unsigned int i=0; i < database.size() ; i++){
 		outfile << database[i].get_fname() << "," << database[i].get_lname() << "," << database[i].get_unum() << "," << database[i].get_email() << "," << database[i].get_pres() << "," << database[i].get_paper() << "," << database[i].get_proj() << endl;
 	}
 	outfile.close();
