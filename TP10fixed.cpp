@@ -14,7 +14,7 @@ void save();
 class Student {
 	string fname, lname, unum, email;
 	int pres, paper, proj;
-public:
+	public:
 	Student(string, string, string, string, int, int, int);
 	void set_fname(string);
 	void set_lname(string);
@@ -138,9 +138,9 @@ void ADD() {
 	cout << endl << "Student's Last Name:";
 	cin >> nlName;
 	cout << endl << "Student's UNumber:";
-	cin >> nEmail;
-	cout << endl << "Student's Email:";
 	cin >> nUnum;
+	cout << endl << "Student's Email:";
+	cin >> nEmail;
 	Student nStu = Student(nfName, nlName, nUnum, nEmail, 0, 0, 0);
 	database.push_back(nStu);
 	DISPLAY();
@@ -289,9 +289,8 @@ void UPDATE() {
 void save(){
 	ofstream outfile;
 	outfile.open("database.txt");
-	for(unsigned int i=0; i < database.size() ; i--){
+	for(int i=0; i < database.size() ; i++){
 		outfile << database[i].get_fname() << "," << database[i].get_lname() << "," << database[i].get_unum() << "," << database[i].get_email() << "," << database[i].get_pres() << "," << database[i].get_paper() << "," << database[i].get_proj() << endl;
-		i++;
 	}
 	outfile.close();
 }
