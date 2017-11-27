@@ -245,24 +245,29 @@ void SEARCH() {
 
 // Search for a student
 void UPDATE() {
-	int input = 0;
-	int nxtinput = 0;
-	int grade = 0;
+	char input[256];
+	char nxtinput = 0;
+	char grade = 0;
+	int i;
 	string nwAtt;
 	bool check = false;
 	while(!check){
 		DISPLAY();
 		cout << "Enter the Number of the student to be modified: ";
-		cin >> input;
-		if((input > 0) && (input < database.size()+1)) check = true;
-		else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size()+1 << ").\n";
+		cin.getline(input, 256, '\n');
+		if(input[0] > 48 && input[0] < 58){
+			i = atoi(input);
+			if((i > 0) && (i < database.size()+1)) check = true;
+			else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size()+1 << ").\n";
+		}
+		else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size()+1 <<").\n";
 	}
 
 	check = false;
 	while(!check){
-		cout << "1. First Name " << database[input-1].get_fname() << "\n2. Last Name " << database[input-1].get_lname() << "\n3. Email " << database[input-1].get_email() << "\n4. U Number " << database[input-1].get_unum() << "\nWhich attribute? ";
+		cout << "1. First Name " << database[i-1].get_fname() << "\n2. Last Name " << database[i-1].get_lname() << "\n3. Email " << database[i-1].get_email() << "\n4. U Number " << database[i-1].get_unum() << "\nWhich attribute? ";
 		cin >> nxtinput;
-		if((nxtinput > 0) && (nxtinput < 5)) check = true;
+		if((nxtinput > 48) && (nxtinput < 53)) check = true;
 		else cout << "\nPlease use a valid number.\n";
 	}
 
@@ -274,17 +279,17 @@ void UPDATE() {
 	}
 
 	switch(nxtinput){
-		case 1:
-			database[input-1].set_fname(nwAtt);
+		case '1':
+			database[i-1].set_fname(nwAtt);
 			break;
-		case 2:
-			database[input-1].set_lname(nwAtt);
+		case '2':
+			database[i-1].set_lname(nwAtt);
 			break;
-		case 3:
-			database[input-1].set_email(nwAtt);
+		case '3':
+			database[i-1].set_email(nwAtt);
 			break;
-		case 4:
-			database[input-1].set_unum(nwAtt);
+		case '4':
+			database[i-1].set_unum(nwAtt);
 			break;
 	}
 	DISPLAY();
