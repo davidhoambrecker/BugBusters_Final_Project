@@ -17,4 +17,16 @@ Bugs Documentation:
 15.- (Lines 71, 76) - Severe Fault: Switched paper and project initializing values since they were swapped.
 16.- (Line 85) - Moderate Fault: Changed initializiation of i and limit of the for loop.
 17.- (Line 95) - Severe Fault: Changed the type of grade from char to int to match the parameter used in set functions.
+18.- (Line 109, 169) - Severe Fault: Changed assignment of boolean flag from false to true.
+19.- (Line 172) - Severe Fault: Deleted removal of the student from the database when the answer to confirmation is "n".
+20.- (Line 213) - Severe Fault: Delete i-- from the statement to avoid infinite iteration.
+21.- (Lines 236 - 238) - Cosmetic Fault: Changed structure of the for loop and information to be printed to match request.
+22.- (Line 254) - Moderate Fault: Changed "<" by ">" inside of the if statement to perform correct check.
+23.- (Line 264) - Severe Fault: Changed cout to cin since information must be read from the user instead of outputted.
+24.- (Line 269) - Severe Fault: Assigned false to boolean flag before entering a new while loop.
+25.- (Line 297) - Severe Fault: Swapped values for initialization of i and bound of the for loop.
+26.- (Line 319) - Severe Fault: Changed file pointer object from write mode to read mode and corrected the NULL check.
+27.- (Lines 343, 346) - Cosmetic Fault: Changed values of the grades to match those described in the guidelines.
+28.- (Line 352) - Severe Fault: Changed equality operator to inequality operator to perform the appropiate check.
+29.-
 
