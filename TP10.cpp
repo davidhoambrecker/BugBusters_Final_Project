@@ -82,7 +82,7 @@ vector<Student> database;
 void DISPLAY() {
 	cout << "--------------Student Information--------------" << endl << endl;
 
-	for (int i = 1; i <= database.size(); i++) {
+	for (int i = 0; i < database.size(); i++) {
 		cout << i+1 << ". " << database[i].get_fname() << "\t" << database[i].get_lname() << "\t" << database[i].get_unum() << "\t" << database[i].get_email() << "\tPresentaion:";
 		cout << database[i].get_pres() << "\tPaper:" << database[i].get_paper() << "\tProject:" << database[i].get_proj() << endl;
 	}
@@ -92,7 +92,7 @@ void DISPLAY() {
 void WRITE() {
 	int input = 0;
 	int nxtinput = 0;
-	char grade = 0;
+	int grade = 0;
 
 	bool check = false;
 	while(!check){
@@ -231,6 +231,7 @@ void SEARCH() {
 			break;
 	}
 	cout << "Found " << j << " matching accounts listed below.\n";
+
 	for(int j = 0; j < 20; j++){
 		if(found[j] >= 0) {
 			int i = found[j];
@@ -242,7 +243,7 @@ void SEARCH() {
 
 }
 
-// Saerch for a student
+// Search for a student
 void UPDATE() {
 	int input = 0;
 	int nxtinput = 0;

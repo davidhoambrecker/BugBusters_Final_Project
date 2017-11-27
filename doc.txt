@@ -15,5 +15,6 @@ Bugs Documentation:
 13.- (Lines 141, 142, 143, 144) - Severe Fault: Logical error, input for U-Number saved to email variable and vice versa before creating student.
 14.- (Lines 289 - 294): Severe Fault: Infinite for loop in save function - declaration has decrement i-- yet end of block has increment i++.
 15.- (Lines 71, 76) - Severe Fault: Switched paper and project initializing values since they were swapped.
-16.- ()
+16.- (Line 85) - Moderate Fault: Changed initializiation of i and limit of the for loop.
+17.- (Line 95) - Severe Fault: Changed the type of grade from char to int to match the parameter used in set functions.
 
