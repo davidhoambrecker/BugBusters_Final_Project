@@ -254,7 +254,7 @@ void UPDATE() {
 	while(!check){
 		DISPLAY();
 		cout << "Enter the Number of the student to be modified: ";
-		cin.getline(input, 256, '\n');
+		scanf("%s", input);
 		if(input[0] > 48 && input[0] < 58){
 			i = atoi(input);
 			if((i > 0) && (i < database.size()+1)) check = true;
