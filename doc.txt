@@ -29,5 +29,4 @@ Bugs Documentation:
 27.- (Lines 343, 346) - Cosmetic Fault: Changed values of the grades to match those described in the guidelines.
 28.- (Line 352) - Severe Fault: Changed equality operator to inequality operator to perform the appropiate check.
 29.- (Lines 247 - 297) - Severe Fault: Changed input variables from ints to char, and convert chars to int where necessary to perform input checking and prevent infinite loop when a non integer is entered
-
-
+30.- (Lines 160, 261, 263) - Cosmetic Fault: The range of options will never include anything bigger than the size of the database, so error message was changed.

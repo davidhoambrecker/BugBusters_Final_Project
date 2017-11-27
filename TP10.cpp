@@ -157,7 +157,7 @@ void DELETE() {
 		cout << "Enter the Number of the student that you want to delete: ";
 		cin >> input;
 		if((input > 0) && (input < database.size()+1)) check = true;
-		else cout << "Invalid entry, try a valid number(i.e. 1-" << database.size()+1 << ").\n";
+		else cout << "Invalid entry, try a valid number(i.e. 1-" << database.size() << ").\n";
 	}
 	cout << "\nName: " << database[input-1].get_fname() << " " << database[input-1].get_lname() << "\nU Number: " << database[input-1].get_unum();
 	check = false;
@@ -258,9 +258,9 @@ void UPDATE() {
 		if(input[0] > 48 && input[0] < 58){
 			i = atoi(input);
 			if((i > 0) && (i < database.size()+1)) check = true;
-			else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size()+1 << ").\n";
+			else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size() << ").\n";
 		}
-		else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size()+1 <<").\n";
+		else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size() <<").\n";
 	}
 
 	check = false;
