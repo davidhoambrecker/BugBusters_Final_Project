@@ -139,9 +139,9 @@ void ADD() {
 	cout << endl << "Student's Last Name:";
 	cin >> nlName;
 	cout << endl << "Student's UNumber:";
-	cin >> nEmail;
-	cout << endl << "Student's Email:";
 	cin >> nUnum;
+	cout << endl << "Student's Email:";
+	cin >> nEmail;
 	Student nStu = Student(nfName, nlName, nUnum, nEmail, 0, 0, 0);
 	database.push_back(nStu);
 	DISPLAY();
@@ -291,9 +291,8 @@ void UPDATE() {
 void save(){
 	ofstream outfile;
 	outfile.open("database.txt");
-	for(int i=database.size(); i < 0 ; i--){
+	for(int i=database.size(); i < 0 ; i++){
 		outfile << database[i].get_fname() << "," << database[i].get_lname() << "," << database[i].get_unum() << "," << database[i].get_email() << "," << database[i].get_pres() << "," << database[i].get_paper() << "," << database[i].get_proj() << endl;
-		i++;
 	}
 	outfile.close();
 }
