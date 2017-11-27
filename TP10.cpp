@@ -68,7 +68,7 @@ void Student::set_pres(int x)
 
 void Student::set_paper(int x)
 {
-	proj = x;
+	paper = x;
 }
 
 void Student::set_proj(int x)
@@ -106,7 +106,7 @@ void WRITE() {
 	while(!check){
 		cout << "1. Presentation " << database[input-1].get_pres() << "\n2. Paper " << database[input-1].get_paper() << "\n3. Project " << database[input-1].get_proj() << "\nWhich grade? ";
 		cin >> nxtinput;
-		if((nxtinput > 0) && (nxtinput < 4)) check = false;
+		if((nxtinput > 0) && (nxtinput < 4)) check = true;
 		else cout << "\nPlease use a valid number.\n";
 	}
 	check = false;
@@ -135,7 +135,6 @@ void ADD() {
 	string nfName, nlName, nUnum, nEmail;
 	cout << "Student First Name:";
 	cin >> nfName;
-	cout << nfName;
 	cout << endl << "Student's Last Name:";
 	cin >> nlName;
 	cout << endl << "Student's UNumber:";
@@ -167,10 +166,9 @@ void DELETE() {
 		cin >> confirm;
 		if(confirm == 'y'){
 			database.erase(database.begin() + input - 1);
-			check = false;
+			check = true;
 		}
 		else if(confirm == 'n') {
-			database.erase(database.begin() + input - 1);
 			check = true;
 		}
 		else cout << "This is a simple choice between y or n, try again.\n";
@@ -211,7 +209,6 @@ void SEARCH() {
 			for(int i = 0; i < database.size(); i++){
 				if(name.compare(database[i].get_fname()) ==0){
 					found[j] = i;
-					i--;
 					j++;
 				}
 			}
@@ -234,9 +231,13 @@ void SEARCH() {
 			break;
 	}
 	cout << "Found " << j << " matching accounts listed below.\n";
-	for(int i = 0; i < 20; i++){
-		if(found[i] >= 0) cout << found[i]+1 << ". " << database[i].get_unum() << endl;
+	for(int j = 0; j < 20; j++){
+		if(found[j] >= 0) {
+			int i = found[j];
+			cout << j+1 << ". " << database[i].get_fname() << "," << database[i].get_lname() << "," << database[i].get_unum() << "," << database[i].get_email() << "," << database[i].get_pres() << "," << database[i].get_paper() << "," << database[i].get_proj() << endl;
+		}
 	}
+
 	cout << endl;
 
 }
@@ -252,18 +253,19 @@ void UPDATE() {
 		DISPLAY();
 		cout << "Enter the Number of the student to be modified: ";
 		cin >> input;
-		if((input < 0) && (input < database.size()+1)) check = true;
+		if((input > 0) && (input < database.size()+1)) check = true;
 		else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size()+1 << ").\n";
 	}
 
 	check = false;
 	while(!check){
 		cout << "1. First Name " << database[input-1].get_fname() << "\n2. Last Name " << database[input-1].get_lname() << "\n3. Email " << database[input-1].get_email() << "\n4. U Number " << database[input-1].get_unum() << "\nWhich attribute? ";
-		cout << nxtinput;
+		cin >> nxtinput;
 		if((nxtinput > 0) && (nxtinput < 5)) check = true;
 		else cout << "\nPlease use a valid number.\n";
 	}
 
+	check = false;
 	while(!check){
 		cout << "\nNew attribute:";
 		cin >> nwAtt;
@@ -291,7 +293,7 @@ void UPDATE() {
 void save(){
 	ofstream outfile;
 	outfile.open("database.txt");
-	for(int i=database.size(); i < 0 ; i++){
+	for(int i = 0; i < database.size(); i++){
 		outfile << database[i].get_fname() << "," << database[i].get_lname() << "," << database[i].get_unum() << "," << database[i].get_email() << "," << database[i].get_pres() << "," << database[i].get_paper() << "," << database[i].get_proj() << endl;
 	}
 	outfile.close();
@@ -313,7 +315,7 @@ int main() {
 	//ifstream db("database.txt");
 
 	//if (db.is_open()) {//checks if it is open
-	if(fp = fopen("database.txt", "w")){
+	if((fp = fopen("database.txt", "r")) != NULL){
 
 		while(fgets(str, MAXLEN, fp) != NULL){
 			fn = strtok(str, ",");
@@ -337,16 +339,16 @@ int main() {
 		outfile.open("database.txt");
 
 		// Populating the file
-		outfile << "Rick,Sanchaz,u01234567,regularrick@gmail.com,6,6,6" << endl;
+		outfile << "Rick,Sanchaz,u01234567,regularrick@gmail.com,0,0,0" << endl;
 		outfile << "Morty,Smith,u76543210,morty@gmail.com,3,3,2" << endl;
 		outfile << "Summer,Smith,u88965238,summer@gmail.com,4,4,3" << endl;
-		outfile << "Walter,White,u96571368,hizenburg@gmail.com,6,6,6" << endl;
+		outfile << "Walter,White,u96571368,hizenburg@gmail.com,2,2,2" << endl;
 		outfile << "Jesse,Pinkman,u79269858,pinkman@gmail.com,1,2,1" << endl;
 
 		outfile.close();
 		fp = fopen("database.txt", "r");
 
-		while(fgets(str, MAXLEN, fp) == NULL){
+		while(fgets(str, MAXLEN, fp) != NULL){
 			fn = strtok(str, ",");
 			ln = strtok(NULL, ",");
 			un = strtok(NULL, ",");
