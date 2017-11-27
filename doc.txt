@@ -8,8 +8,10 @@ Bugs Documentation:
 6.- (Line 365) - Cosmetic Fault: Switched while(1) to while(true) for cleaner and more general implementation.
 7.- (Line 364) - Moderate Fault: Deleted variable checkers which is not needed anymore since its loop was deleted.
 8.- (Line 402) - Cosmetic Fault: Added an error message printing when the default case of the switch statement is reached.
-9.- (Lines 380, 384, 387, 390, 393, 396, 399) - Severe Fault: Switched the cases from integer to charactes to match the declaration of choice.
+9.- (Lines 380, 384, 387, 390, 393, 396, 399) - Severe Fault: Switched the cases from integer to characters to match the declaration of choice.
 10.- (Line 186) - Severe Fault: sel changed from int to char to avoid infinite loop when entering non-int value.
 11.- (Line 195) - Severe Fault: Changed integer values in the if statement to their respective character values.
-12.- (Lines 201, 209, 218, 226) - Severe Fault: Switched the cases from integer to charactes to match the declaration of choice.
-13.- 
+12.- (Lines 201, 209, 218, 226) - Severe Fault: Switched the cases from integer to characters to match the declaration of choice.
+13.- (Lines 141, 142, 143, 144) - Logical error: input for U-Number saved to email variable and vice versa before creating student
+14.- (Lines 289 - 294): Save function: Infinite for loop - declaration has decrement i-- yet end of block has increment i++
+
