@@ -90,41 +90,46 @@ void DISPLAY() {
 
 // Write student data or change it
 void WRITE() {
-	int input = 0;
-	int nxtinput = 0;
-	int grade = 0;
+	char input[256];
+	char nxtinput = 0;
+	char grade = 0;
+	int i = 0;
 
 	bool check = false;
 	while(!check){
 		DISPLAY();
 		cout << "Enter the Number of the student whose grade you wish to alter: ";
-		cin >> input;
-		if((input > 0) && (input < database.size()+1)) check = true;
+		scanf("%s", input);
+		if (input[0] > 48 && input[0] < 58) {
+			i = atoi(input);
+			if ((i > 0) && (i < database.size() + 1)) check = true;
+			else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size() << ").\n";
+		}
 		else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size() << ").\n";
 	}
 	check = false;
 	while(!check){
-		cout << "1. Presentation " << database[input-1].get_pres() << "\n2. Paper " << database[input-1].get_paper() << "\n3. Project " << database[input-1].get_proj() << "\nWhich grade? ";
+		cout << "1. Presentation " << database[i-1].get_pres() << "\n2. Paper " << database[i-1].get_paper() << "\n3. Project " << database[i-1].get_proj() << "\nWhich grade? ";
 		cin >> nxtinput;
-		if((nxtinput > 0) && (nxtinput < 4)) check = true;
+		if ((nxtinput > 48) && (nxtinput < 52)) check = true;
 		else cout << "\nPlease use a valid number.\n";
 	}
 	check = false;
 	while(!check){
 		cout << "\nNew grade?(0-4)";
 		cin >> grade;
-		if((grade >= 0) && (grade < 5)) check = true;
+		if((grade >= 48) && (grade < 53)) check = true;
 		else cout << "\nStop making me repeat myself.\n";
 	}
 	switch(nxtinput){
-		case 1:
-			database[input-1].set_pres(grade);
+		case '1':
+			database[i-1].set_pres(grade);
 			break;
-		case 2:
-			database[input-1].set_paper(grade);
+		case '2':
+			database[i-1].set_paper(grade);
 			break;
-		case 3:
-			database[input-1].set_proj(grade);
+		case '3':
+			database[i-1].set_proj(grade);
 			break;
 	}
 	DISPLAY();
@@ -149,23 +154,28 @@ void ADD() {
 
 // Delete student from database
 void DELETE() {
-	int input = 0;
+	char input[256];
 	char confirm;
+	int i = 0;
 	bool check = false;
 	while(!check){
 		DISPLAY();
 		cout << "Enter the Number of the student that you want to delete: ";
-		cin >> input;
-		if((input > 0) && (input < database.size()+1)) check = true;
-		else cout << "Invalid entry, try a valid number(i.e. 1-" << database.size() << ").\n";
+		scanf("%s", input);
+		if (input[0] > 48 && input[0] < 58) {
+			i = atoi(input);
+			if ((i > 0) && (i < database.size() + 1)) check = true;
+			else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size() << ").\n";
+		}
+		else cout << "\nInvalid entry, try a valid number(i.e. 1-" << database.size() << ").\n";
 	}
-	cout << "\nName: " << database[input-1].get_fname() << " " << database[input-1].get_lname() << "\nU Number: " << database[input-1].get_unum();
+	cout << "\nName: " << database[i-1].get_fname() << " " << database[i-1].get_lname() << "\nU Number: " << database[i-1].get_unum();
 	check = false;
 	while(!check){
 		cout << "\nDelete this Student?(y/n):";
 		cin >> confirm;
 		if(confirm == 'y'){
-			database.erase(database.begin() + input - 1);
+			database.erase(database.begin() + i - 1);
 			check = true;
 		}
 		else if(confirm == 'n') {
@@ -243,7 +253,7 @@ void SEARCH() {
 
 }
 
-// Search for a student
+// Update a student's information
 void UPDATE() {
 	char input[256];
 	char nxtinput = 0;
