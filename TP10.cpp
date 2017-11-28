@@ -121,15 +121,16 @@ void WRITE() {
 		if((grade >= 48) && (grade < 53)) check = true;
 		else cout << "\nStop making me repeat myself.\n";
 	}
+	int g = grade - 48;
 	switch(nxtinput){
 		case '1':
-			database[i-1].set_pres(grade);
+			database[i-1].set_pres(g);
 			break;
 		case '2':
-			database[i-1].set_paper(grade);
+			database[i-1].set_paper(g);
 			break;
 		case '3':
-			database[i-1].set_proj(grade);
+			database[i-1].set_proj(g);
 			break;
 	}
 	DISPLAY();
